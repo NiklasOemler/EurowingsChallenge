@@ -21,6 +21,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = vc
         window.makeKeyAndVisible()
         self.window = window
+        
+        let apiConfig = ConfigProvider.sharedInstance.config.api
+        let httpClient = DefaultHttpClient(apiConfig: apiConfig)
+        let postService = DefaultPostService(client: httpClient)
+        postService.getPosts { result in
+            print(result)
+        }
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

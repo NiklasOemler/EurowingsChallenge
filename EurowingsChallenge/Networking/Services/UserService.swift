@@ -8,12 +8,12 @@
 import Foundation
 
 protocol UserService {
-    func getUser(id: Int, completion: @escaping (User?) -> Void)
+    func getUser(id: Int, completion: @escaping (Result<User, Error>) -> Void)
 }
 
 class DefaultUserService: BaseApiService, UserService {
     
-    func getUser(id: Int, completion: @escaping (User?) -> Void) {
+    func getUser(id: Int, completion: @escaping (Result<User, Error>) -> Void) {
         let endpoint = JsonPlaceholderEndpoints.users
             .appendingPathComponent(
                 component: String(id)
@@ -21,12 +21,8 @@ class DefaultUserService: BaseApiService, UserService {
         
         client.sendGetRequest(
             endPoint: endpoint) { response in
-                switch(response) {
-                case .success(let data):
-                    print(data)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
+                let result = self.decodeResponse(User.self, from: response)
+                completion(result)
             }
     }
 }

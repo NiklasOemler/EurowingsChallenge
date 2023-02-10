@@ -8,37 +8,29 @@
 import Foundation
 
 protocol PostService {
-    func getPosts(completion: @escaping ([Post]?) -> Void)
-    func getCommentsForPost(postId: Int, completion: @escaping ([Comment]?) -> Void)
+    func getPosts(completion: @escaping (Result<[Post], Error>) -> Void)
+    func getCommentsForPost(postId: Int, completion: @escaping (Result<[Comment], Error>) -> Void)
 }
 
 class DefaultPostService: BaseApiService, PostService {
     
-    func getPosts(completion: @escaping ([Post]?) -> Void) {
+    func getPosts(completion: @escaping (Result<[Post], Error>) -> Void) {
         client.sendGetRequest(
             endPoint: JsonPlaceholderEndpoints.posts) { response in
-                switch (response) {
-                case .success(let data):
-                    print(data)
-                case .failure(let error):
-                    print(error)
-                }
+                let result = self.decodeResponse([Post].self, from: response)
+                completion(result)
             }
     }
     
-    func getCommentsForPost(postId: Int, completion: @escaping ([Comment]?) -> Void) {
+    func getCommentsForPost(postId: Int, completion: @escaping (Result<[Comment], Error>) -> Void) {
         let endpoint = JsonPlaceholderEndpoints.posts
             .appendingPathComponent(component: String(postId))
             .appendingPathComponent(component: JsonPlaceholderEndpoints.comments)
         
         client.sendGetRequest(
             endPoint: endpoint) { response in
-                switch (response) {
-                case .success(let data):
-                    print(data)
-                case .failure(let error):
-                    print(error)
-                }
+                let result = self.decodeResponse([Comment].self, from: response)
+                completion(result)
             }
     }
 }

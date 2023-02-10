@@ -8,15 +8,12 @@
 import Foundation
 
 protocol HttpClient {
-    func sendGetRequest(endPoint: String, completion: @escaping (ResponseStatus) -> Void)
+    func sendGetRequest(endPoint: String, completion: @escaping (Response) -> Void)
 }
 
-enum ResponseStatus {
-    case failure(error: Error)
-    case success(data: Data)
-}
+typealias Response = Result<Data, Error>
 
-class DefaultHttpClient {
+class DefaultHttpClient: HttpClient {
     private let apiConfig: ApiConfig
     private let baseUrl: URL
     private let urlSession = URLSession.shared
@@ -28,16 +25,19 @@ class DefaultHttpClient {
         self.baseUrl = URL(string: basePath)!
     }
     
-    func sendGetRequest(endPoint: String, completion: @escaping (ResponseStatus) -> Void) {
+    func sendGetRequest(endPoint: String, completion: @escaping (Response) -> Void) {
         let url = baseUrl.appending(component: endPoint)
-        
-        urlSession.dataTask(with: url) { data, response, error in
-            if let error {
-                completion(.failure(error: error))
-            }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+    
+        let task = urlSession.dataTask(with: request) { data, response, error in
             if let data {
-                completion(.success(data: data))
+                completion(.success(data))
+            }
+            if let error {
+                completion(.failure(error))
             }
         }
+        task.resume()
     }
 }
