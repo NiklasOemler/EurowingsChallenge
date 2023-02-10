@@ -23,4 +23,6 @@ class ConfigProvider {
             fatalError("error parsing config.json file: \(error.localizedDescription)")
         }
     }()
+    
+    private init () {}
 }
