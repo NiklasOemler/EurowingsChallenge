@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3B6AB4F29964AA9000099DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6AB4C29964AA9000099DA /* User.swift */; };
+		D3B6AB5029964AA9000099DA /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6AB4D29964AA9000099DA /* Comment.swift */; };
+		D3B6AB5129964AA9000099DA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6AB4E29964AA9000099DA /* Post.swift */; };
 		D3CA102F2996479F0012A46E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA102E2996479F0012A46E /* AppDelegate.swift */; };
 		D3CA10312996479F0012A46E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA10302996479F0012A46E /* SceneDelegate.swift */; };
 		D3CA1038299647A00012A46E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3CA1037299647A00012A46E /* Assets.xcassets */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D3B6AB4C29964AA9000099DA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D3B6AB4D29964AA9000099DA /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		D3B6AB4E29964AA9000099DA /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D3CA102B2996479F0012A46E /* EurowingsChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EurowingsChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3CA102E2996479F0012A46E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3CA10302996479F0012A46E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +142,9 @@
 		D3CA1061299649B80012A46E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D3B6AB4D29964AA9000099DA /* Comment.swift */,
+				D3B6AB4E29964AA9000099DA /* Post.swift */,
+				D3B6AB4C29964AA9000099DA /* User.swift */,
 				D3CA1062299649B80012A46E /* Config.swift */,
 			);
 			path = Models;
@@ -282,8 +291,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3CA10602996498C0012A46E /* ConfigProvider.swift in Sources */,
+				D3B6AB5029964AA9000099DA /* Comment.swift in Sources */,
 				D3CA1063299649B80012A46E /* Config.swift in Sources */,
 				D3CA102F2996479F0012A46E /* AppDelegate.swift in Sources */,
+				D3B6AB4F29964AA9000099DA /* User.swift in Sources */,
+				D3B6AB5129964AA9000099DA /* Post.swift in Sources */,
 				D3CA10312996479F0012A46E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
