@@ -15,19 +15,17 @@ typealias Response = Result<Data, Error>
 
 class DefaultHttpClient: HttpClient {
     private let apiConfig: ApiConfig
-    private let baseUrl: URL
+    private let baseUrl: String
     private let urlSession = URLSession.shared
     
     init(apiConfig: ApiConfig) {
         self.apiConfig = apiConfig
-        
-        let basePath = apiConfig.scheme + "://" + apiConfig.host
-        self.baseUrl = URL(string: basePath)!
+        self.baseUrl = apiConfig.scheme + "://" + apiConfig.host
     }
     
     func sendGetRequest(endPoint: String, completion: @escaping (Response) -> Void) {
-        let url = baseUrl.appending(component: endPoint)
-        var request = URLRequest(url: url)
+        let url = URL(string: baseUrl.appendingPathComponent(component: endPoint))
+        var request = URLRequest(url: url!)
         request.httpMethod = "GET"
     
         let task = urlSession.dataTask(with: request) { data, response, error in
