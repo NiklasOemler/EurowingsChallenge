@@ -10,7 +10,6 @@
 		D3CA102F2996479F0012A46E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA102E2996479F0012A46E /* AppDelegate.swift */; };
 		D3CA10312996479F0012A46E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA10302996479F0012A46E /* SceneDelegate.swift */; };
 		D3CA10332996479F0012A46E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA10322996479F0012A46E /* ViewController.swift */; };
-		D3CA10362996479F0012A46E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3CA10342996479F0012A46E /* Main.storyboard */; };
 		D3CA1038299647A00012A46E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3CA1037299647A00012A46E /* Assets.xcassets */; };
 		D3CA103B299647A00012A46E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3CA1039299647A00012A46E /* LaunchScreen.storyboard */; };
 		D3CA1046299647A00012A46E /* EurowingsChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA1045299647A00012A46E /* EurowingsChallengeTests.swift */; };
@@ -40,7 +39,6 @@
 		D3CA102E2996479F0012A46E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3CA10302996479F0012A46E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D3CA10322996479F0012A46E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D3CA10352996479F0012A46E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D3CA1037299647A00012A46E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3CA103A299647A00012A46E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3CA103C299647A00012A46E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				D3CA102E2996479F0012A46E /* AppDelegate.swift */,
 				D3CA10302996479F0012A46E /* SceneDelegate.swift */,
 				D3CA10322996479F0012A46E /* ViewController.swift */,
-				D3CA10342996479F0012A46E /* Main.storyboard */,
 				D3CA1037299647A00012A46E /* Assets.xcassets */,
 				D3CA1039299647A00012A46E /* LaunchScreen.storyboard */,
 				D3CA103C299647A00012A46E /* Info.plist */,
@@ -233,7 +230,6 @@
 			files = (
 				D3CA103B299647A00012A46E /* LaunchScreen.storyboard in Resources */,
 				D3CA1038299647A00012A46E /* Assets.xcassets in Resources */,
-				D3CA10362996479F0012A46E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +293,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D3CA10342996479F0012A46E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D3CA10352996479F0012A46E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D3CA1039299647A00012A46E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -441,8 +429,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EurowingsChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -452,6 +439,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tno.EurowingsChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -469,8 +459,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EurowingsChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -480,6 +469,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tno.EurowingsChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
