@@ -32,6 +32,7 @@
 		D3E760B529976FE600CC25FE /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E760B429976FE600CC25FE /* ViewState.swift */; };
 		D3E760B729976FF300CC25FE /* ErrorViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E760B629976FF300CC25FE /* ErrorViewState.swift */; };
 		D3E760B9299770F900CC25FE /* ErrorViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E760B8299770F900CC25FE /* ErrorViewComponent.swift */; };
+		D3E760BC2997A32A00CC25FE /* PostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E760BB2997A32A00CC25FE /* PostDetailViewModel.swift */; };
 		D3E760C22997A33E00CC25FE /* PostDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E760C12997A33E00CC25FE /* PostDetailViewState.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		D3E760B429976FE600CC25FE /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		D3E760B629976FF300CC25FE /* ErrorViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewState.swift; sourceTree = "<group>"; };
 		D3E760B8299770F900CC25FE /* ErrorViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewComponent.swift; sourceTree = "<group>"; };
+		D3E760BB2997A32A00CC25FE /* PostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModel.swift; sourceTree = "<group>"; };
 		D3E760C12997A33E00CC25FE /* PostDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -242,7 +244,15 @@
 			path = ViewStates;
 			sourceTree = "<group>";
 		};
+		D3E760BA2997A31000CC25FE /* Post Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D3E760BB2997A32A00CC25FE /* PostDetailViewModel.swift */,
 				D3E760C12997A33E00CC25FE /* PostDetailViewState.swift */,
+			);
+			path = "Post Detail";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -390,6 +400,7 @@
 				D3B6AB5C29964B51000099DA /* PostService.swift in Sources */,
 				D3C29F0C2997B39600BC859E /* MockProvider.swift in Sources */,
 				D3CA102F2996479F0012A46E /* AppDelegate.swift in Sources */,
+				D3E760BC2997A32A00CC25FE /* PostDetailViewModel.swift in Sources */,
 				D3B6AB5B29964B51000099DA /* UserService.swift in Sources */,
 				D3B6AB4F29964AA9000099DA /* User.swift in Sources */,
 				D3B6AB5129964AA9000099DA /* Post.swift in Sources */,
