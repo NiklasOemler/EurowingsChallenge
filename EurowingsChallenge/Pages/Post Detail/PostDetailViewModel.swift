@@ -9,14 +9,14 @@ import Foundation
 import Combine
 
 protocol PostDetailViewModel: ObservableObject {
-    var viewState: CurrentValueSubject<ViewState, Never> { get set }
+    var viewState: ViewState { get set } // force @published wrapper or use subject ?
     
     func fetchDetails()
     func toggleComments()
 }
 
 class DefaultPostDetailViewModel: PostDetailViewModel {
-    var viewState = CurrentValueSubject<ViewState, Never>(LoadingState())
+    @Published var viewState: ViewState = LoadingState()
     
     private let postService: PostService = DefaultPostService(
         client: DefaultHttpClient()
@@ -35,18 +35,19 @@ class DefaultPostDetailViewModel: PostDetailViewModel {
     }
     
     func fetchDetails() {
-        viewState.send(LoadingState())
+        viewState = LoadingState()
         
         let userPublisher = userService.getUser(id: post.userId)
         let commentsPublisher = postService.getCommentsForPost(postId: post.id)
         
         Publishers.Zip(userPublisher, commentsPublisher)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 guard let self = self else { return }
                 
                 print("completion called in \(self): \(completion)")
                 if completion is any Error {
-                    self.viewState.send(DefaultErrorViewState())
+                    self.viewState = DefaultErrorViewState()
                 }
             } receiveValue: { (user, comments) in
                 let state = DefaultPostDetailViewState(
@@ -54,7 +55,7 @@ class DefaultPostDetailViewModel: PostDetailViewModel {
                     author: user,
                     comments: comments
                 )
-                self.viewState.send(state)
+                self.viewState = state
             }
             .store(in: &disposeBag)
     }
@@ -62,8 +63,7 @@ class DefaultPostDetailViewModel: PostDetailViewModel {
     func toggleComments() {
         if var state = viewState as? PostDetailViewState {
             state.showComments.toggle()
-            
-            // copy?
+            self.viewState = state
         }
     }
 }
