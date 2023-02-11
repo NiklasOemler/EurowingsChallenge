@@ -8,42 +8,69 @@
 import Foundation
 import SwiftUI
 
-struct PostDetailView<ViewModel: PostDetailViewModel>: View {
-
+struct PostDetailRootView<ViewModel: PostDetailViewModel>: View {
     @ObservedObject var viewModel: ViewModel
     
+    @ViewBuilder
     var body: some View {
-        if let state = viewModel.viewState as? PostDetailViewState {
-            VStack(spacing: 10) {
-                Text(state.post.title)
-                Text(state.post.body)
-                Text(state.author.name)
-                Button {
+        Group {
+            switch(viewModel.viewState) {
+            case is LoadingState:
+                ProgressView()
+            case let errorState as ErrorViewState:
+                ErrorViewComponentRepresentable(
+                    viewState: errorState,
+                    action: viewModel.fetchDetails
+                )
+            case let postDetailState as PostDetailViewState:
+                PostDetailView(
+                    viewModel: viewModel,
+                    state: postDetailState
+                )
+            default:
+                VStack {}
+            }
+        }.onAppear {
+            viewModel.fetchDetails()
+        }
+        .padding()
+        .ignoresSafeArea(edges: .bottom)
+    }
+}
+
+struct PostDetailView<ViewModel: PostDetailViewModel>: View {
+    @ObservedObject var viewModel: ViewModel
+    
+    let state: PostDetailViewState
+    
+    var body: some View {
+        VStack(spacing: 10) {
+            Text(state.post.title)
+            Text(state.post.body)
+            Text(state.author.name)
+            Button {
+                withAnimation {
                     viewModel.toggleComments()
-                } label: {
-                    HStack() {
-                        Image(systemName: "bubble.left")
-                        Text("comments")
-                        Image(systemName: state.showComments ? "chevron.up" : "chevron.down")
-                    }
-                    .onTapGesture {
-                        viewModel.toggleComments()
-                    }
                 }
-                if state.showComments {
-                    List(state.comments) { item in
-                        VStack {
-                            Text(item.name)
-                            Text(item.body)
-                        }
-                    }
+            } label: {
+                HStack() {
+                    Image(systemName: "bubble.left")
+                    Text(state.showComments ? "Hide Comments" : "Show Comments")
+                    Image(systemName: state.showComments ? "chevron.up" : "chevron.down")
                 }
             }
-            .padding()
-            .onAppear {
-                viewModel.fetchDetails()
+            if state.showComments {
+                List(state.comments) { item in
+                    VStack(alignment: .leading) {
+                        Text(item.name)
+                            .bold()
+                        Text(item.body)
+                            .multilineTextAlignment(.leading)
+                    }
+                }
             }
         }
+        Spacer()
     }
 }
 
@@ -54,9 +81,10 @@ struct PostDetailView_previews: PreviewProvider {
     static let viewModel = DefaultPostDetailViewModel(post: post)
     
     static var previews: some View {
-        
         VStack {
-            PostDetailView(viewModel: viewModel)
+            PostDetailRootView(
+                viewModel: viewModel
+            )
         }
     }
 }

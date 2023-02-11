@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window.rootViewController = postsViewController
         
         let vc = UIHostingController(
-            rootView: PostDetailView(
+            rootView: PostDetailRootView(
                 viewModel: DefaultPostDetailViewModel(
                     post: MockProvider.post)
             )
