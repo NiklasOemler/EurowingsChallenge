@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D394175B2996850A00362680 /* PostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D394175A2996850A00362680 /* PostsTableViewController.swift */; };
+		D394175D2996860100362680 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D394175C2996860100362680 /* PostsViewModel.swift */; };
 		D3B6AB4F29964AA9000099DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6AB4C29964AA9000099DA /* User.swift */; };
 		D3B6AB5029964AA9000099DA /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6AB4D29964AA9000099DA /* Comment.swift */; };
 		D3B6AB5129964AA9000099DA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6AB4E29964AA9000099DA /* Post.swift */; };
@@ -25,6 +27,10 @@
 		D3CA1052299647A00012A46E /* EurowingsChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA1051299647A00012A46E /* EurowingsChallengeUITestsLaunchTests.swift */; };
 		D3CA10602996498C0012A46E /* ConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA105F2996498C0012A46E /* ConfigProvider.swift */; };
 		D3CA1063299649B80012A46E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA1062299649B80012A46E /* Config.swift */; };
+		D3E760B229976FAC00CC25FE /* PostsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E760B129976FAC00CC25FE /* PostsViewState.swift */; };
+		D3E760B529976FE600CC25FE /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E760B429976FE600CC25FE /* ViewState.swift */; };
+		D3E760B729976FF300CC25FE /* ErrorViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E760B629976FF300CC25FE /* ErrorViewState.swift */; };
+		D3E760B9299770F900CC25FE /* ErrorViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E760B8299770F900CC25FE /* ErrorViewComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D394175A2996850A00362680 /* PostsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewController.swift; sourceTree = "<group>"; };
+		D394175C2996860100362680 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
 		D3B6AB4C29964AA9000099DA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D3B6AB4D29964AA9000099DA /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		D3B6AB4E29964AA9000099DA /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -67,6 +75,10 @@
 		D3CA1051299647A00012A46E /* EurowingsChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurowingsChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D3CA105F2996498C0012A46E /* ConfigProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigProvider.swift; sourceTree = "<group>"; };
 		D3CA1062299649B80012A46E /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		D3E760B129976FAC00CC25FE /* PostsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewState.swift; sourceTree = "<group>"; };
+		D3E760B429976FE600CC25FE /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		D3E760B629976FF300CC25FE /* ErrorViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewState.swift; sourceTree = "<group>"; };
+		D3E760B8299770F900CC25FE /* ErrorViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +106,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3941758299684CB00362680 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				D3941759299684DB00362680 /* Posts Listing */,
+				D3E760B8299770F900CC25FE /* ErrorViewComponent.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		D3941759299684DB00362680 /* Posts Listing */ = {
+			isa = PBXGroup;
+			children = (
+				D394175A2996850A00362680 /* PostsTableViewController.swift */,
+				D394175C2996860100362680 /* PostsViewModel.swift */,
+				D3E760B129976FAC00CC25FE /* PostsViewState.swift */,
+			);
+			path = "Posts Listing";
+			sourceTree = "<group>";
+		};
 		D3B6AB5229964B51000099DA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +174,7 @@
 				D3CA105E2996498C0012A46E /* Core */,
 				D3CA1061299649B80012A46E /* Models */,
 				D3B6AB5229964B51000099DA /* Networking */,
+				D3941758299684CB00362680 /* Pages */,
 				D3CA1064299649CA0012A46E /* Supporting Files */,
 			);
 			path = EurowingsChallenge;
@@ -168,6 +200,7 @@
 		D3CA105E2996498C0012A46E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D3E760B329976FCF00CC25FE /* ViewStates */,
 				D3CA105F2996498C0012A46E /* ConfigProvider.swift */,
 			);
 			path = Core;
@@ -192,6 +225,15 @@
 				D3CA103C299647A00012A46E /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D3E760B329976FCF00CC25FE /* ViewStates */ = {
+			isa = PBXGroup;
+			children = (
+				D3E760B429976FE600CC25FE /* ViewState.swift */,
+				D3E760B629976FF300CC25FE /* ErrorViewState.swift */,
+			);
+			path = ViewStates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,10 +369,16 @@
 			files = (
 				D3CA10602996498C0012A46E /* ConfigProvider.swift in Sources */,
 				D3B6AB5029964AA9000099DA /* Comment.swift in Sources */,
+				D394175B2996850A00362680 /* PostsTableViewController.swift in Sources */,
 				D3B6AB5D29964B51000099DA /* ApiService.swift in Sources */,
 				D3B6AB5929964B51000099DA /* HttpClient.swift in Sources */,
 				D3CA1063299649B80012A46E /* Config.swift in Sources */,
+				D3E760B529976FE600CC25FE /* ViewState.swift in Sources */,
+				D3E760B9299770F900CC25FE /* ErrorViewComponent.swift in Sources */,
+				D394175D2996860100362680 /* PostsViewModel.swift in Sources */,
+				D3E760B229976FAC00CC25FE /* PostsViewState.swift in Sources */,
 				D3B6AB5A29964B51000099DA /* JsonPlaceholderEndpoints.swift in Sources */,
+				D3E760B729976FF300CC25FE /* ErrorViewState.swift in Sources */,
 				D3B6AB5C29964B51000099DA /* PostService.swift in Sources */,
 				D3CA102F2996479F0012A46E /* AppDelegate.swift in Sources */,
 				D3B6AB5B29964B51000099DA /* UserService.swift in Sources */,
