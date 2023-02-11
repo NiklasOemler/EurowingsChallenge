@@ -18,6 +18,7 @@
 		D3B6AB5C29964B51000099DA /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6AB5729964B51000099DA /* PostService.swift */; };
 		D3B6AB5D29964B51000099DA /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6AB5829964B51000099DA /* ApiService.swift */; };
 		D3B6AB5F29964DBE000099DA /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = D3B6AB5E29964DBE000099DA /* config.json */; };
+		D3C29F0C2997B39600BC859E /* MockProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C29F0B2997B39600BC859E /* MockProvider.swift */; };
 		D3CA102F2996479F0012A46E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA102E2996479F0012A46E /* AppDelegate.swift */; };
 		D3CA10312996479F0012A46E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA10302996479F0012A46E /* SceneDelegate.swift */; };
 		D3CA1038299647A00012A46E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3CA1037299647A00012A46E /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		D3B6AB5729964B51000099DA /* PostService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		D3B6AB5829964B51000099DA /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		D3B6AB5E29964DBE000099DA /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
+		D3C29F0B2997B39600BC859E /* MockProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProvider.swift; sourceTree = "<group>"; };
 		D3CA102B2996479F0012A46E /* EurowingsChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EurowingsChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3CA102E2996479F0012A46E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3CA10302996479F0012A46E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				D3CA1037299647A00012A46E /* Assets.xcassets */,
 				D3CA1039299647A00012A46E /* LaunchScreen.storyboard */,
 				D3CA103C299647A00012A46E /* Info.plist */,
+				D3C29F0B2997B39600BC859E /* MockProvider.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				D3B6AB5A29964B51000099DA /* JsonPlaceholderEndpoints.swift in Sources */,
 				D3E760B729976FF300CC25FE /* ErrorViewState.swift in Sources */,
 				D3B6AB5C29964B51000099DA /* PostService.swift in Sources */,
+				D3C29F0C2997B39600BC859E /* MockProvider.swift in Sources */,
 				D3CA102F2996479F0012A46E /* AppDelegate.swift in Sources */,
 				D3B6AB5B29964B51000099DA /* UserService.swift in Sources */,
 				D3B6AB4F29964AA9000099DA /* User.swift in Sources */,
