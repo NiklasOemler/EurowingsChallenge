@@ -15,10 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene)
         
-        let vc = UIViewController()
-        vc.view.backgroundColor = .green
-        
-        window.rootViewController = vc
+        let postsViewController = PostsTableViewController()
+        window.rootViewController = postsViewController
         window.makeKeyAndVisible()
         self.window = window
     }
