@@ -44,10 +44,10 @@ class DefaultPostDetailViewModel: PostDetailViewModel {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 guard let self = self else { return }
-                
                 print("completion called in \(self): \(completion)")
-                if completion is any Error {
-                    self.viewState = DefaultErrorViewState()
+                
+                if case .failure(let error) = completion {
+                    self.viewState = DefaultErrorViewState(error: error)
                 }
             } receiveValue: { (user, comments) in
                 let state = DefaultPostDetailViewState(
@@ -67,4 +67,3 @@ class DefaultPostDetailViewModel: PostDetailViewModel {
         }
     }
 }
-

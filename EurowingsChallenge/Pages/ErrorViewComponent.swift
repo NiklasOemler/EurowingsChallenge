@@ -30,6 +30,14 @@ class ErrorViewComponent: UIView {
         return label
     }()
     
+    private let errorLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 3
+        label.textColor = .red
+        return label
+    }()
+    
     private let button: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -58,6 +66,7 @@ class ErrorViewComponent: UIView {
     private func addSubViews() {
         addSubview(titleLabel)
         addSubview(descriptionLabel)
+        addSubview(errorLabel)
         addSubview(button)
     }
     
@@ -65,6 +74,7 @@ class ErrorViewComponent: UIView {
     private func setState(_ viewState: ErrorViewState) {
         titleLabel.text = viewState.title
         descriptionLabel.text = viewState.description
+        errorLabel.text = viewState.error?.localizedDescription
         button.setTitle(viewState.buttonTitle, for: .normal)
         
         button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
@@ -88,7 +98,12 @@ class ErrorViewComponent: UIView {
         ])
         
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 40),
+            errorLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
+            errorLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: errorLabel.bottomAnchor, constant: 40),
             button.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             button.heightAnchor.constraint(equalToConstant: 50),
             button.widthAnchor.constraint(equalToConstant: 200),

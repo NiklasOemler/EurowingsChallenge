@@ -60,6 +60,8 @@ class PostsTableViewController: UITableViewController {
             .sink(receiveValue: { [weak self] viewState in
                 guard let self = self else { return }
                 
+                self.tableView.backgroundView = nil
+                
                 switch(viewState) {
                 case is LoadingState:
                     let indicator = UIActivityIndicatorView()
@@ -73,6 +75,7 @@ class PostsTableViewController: UITableViewController {
                     )
                     self.tableView.backgroundView = component
                 case let postsState as PostsViewState:
+                    self.title = postsState.title
                     self.posts = postsState.posts
                 default:
                     break

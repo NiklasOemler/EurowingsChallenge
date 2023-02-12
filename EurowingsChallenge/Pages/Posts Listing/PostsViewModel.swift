@@ -29,10 +29,10 @@ class DefaultPostsViewModel: PostsViewModel {
         service.getPosts()
             .sink { [weak self] completion in
                 guard let self = self else { return }
-                
                 print("completion called in \(self): \(completion)")
-                if completion is any Error {
-                    self.viewState.send(DefaultErrorViewState())
+                
+                if case .failure(let error) = completion {
+                    self.viewState.send(DefaultErrorViewState(error: error))
                 }
             } receiveValue: { [weak self] posts in
                 guard let self = self else { return }
