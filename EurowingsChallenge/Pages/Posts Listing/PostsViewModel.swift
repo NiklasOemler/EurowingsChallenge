@@ -48,3 +48,13 @@ class DefaultPostsViewModel: PostsViewModel {
             .store(in: &disposeBag)
     }
 }
+
+class SpyPostsViewModel: DefaultPostsViewModel {
+    var hasFetchedPosts: Bool = false
+    
+    override func fetchPosts() {
+        super.fetchPosts()
+        
+        hasFetchedPosts = true
+    }
+}

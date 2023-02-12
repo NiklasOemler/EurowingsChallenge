@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol PostDetailViewModel: ObservableObject {
-    var viewState: ViewState { get set } // force @published wrapper or use subject ?
+    var viewState: ViewState { get set }
     
     func fetchDetails()
     func toggleComments()
@@ -67,5 +67,14 @@ class DefaultPostDetailViewModel: PostDetailViewModel {
             state.showComments.toggle()
             self.viewState = state
         }
+    }
+}
+
+class SpyPostDetailsViewModel: DefaultPostDetailViewModel {
+    var hasFetchedDetails: Bool = false
+    
+    override func fetchDetails() {
+        super.fetchDetails()
+        hasFetchedDetails = true
     }
 }
