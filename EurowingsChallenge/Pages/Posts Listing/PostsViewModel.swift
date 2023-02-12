@@ -17,11 +17,14 @@ protocol PostsViewModel: ObservableObject {
 class DefaultPostsViewModel: PostsViewModel {
     var viewState = CurrentValueSubject<ViewState, Never>(LoadingState())
     
-    private let service: PostService = DefaultPostService(
-        client: DefaultHttpClient()
-    )
+    private var service: PostService
     
     private var disposeBag = Set<AnyCancellable>()
+    
+    // MARK: - Objecte Lifecycle
+    init(postService: PostService = DefaultPostService(client: DefaultHttpClient())) {
+        self.service = postService
+    }
     
     func fetchPosts() {
         viewState.send(LoadingState())
@@ -33,13 +36,25 @@ class DefaultPostsViewModel: PostsViewModel {
                 
                 if case .failure(let error) = completion {
                     self.viewState.send(DefaultErrorViewState(error: error))
+                    self.viewState.send(completion: .finished)
                 }
             } receiveValue: { [weak self] posts in
                 guard let self = self else { return }
                 
                 let state = DefaultPostsViewState(posts: posts)
                 self.viewState.send(state)
+                self.viewState.send(completion: .finished)
             }
             .store(in: &disposeBag)
+    }
+}
+
+class SpyPostsViewModel: DefaultPostsViewModel {
+    var hasFetchedPosts: Bool = false
+    
+    override func fetchPosts() {
+        super.fetchPosts()
+        
+        hasFetchedPosts = true
     }
 }

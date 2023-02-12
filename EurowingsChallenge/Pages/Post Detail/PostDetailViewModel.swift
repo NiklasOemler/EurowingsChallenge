@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol PostDetailViewModel: ObservableObject {
-    var viewState: ViewState { get set } // force @published wrapper or use subject ?
+    var viewState: ViewState { get set }
     
     func fetchDetails()
     func toggleComments()
@@ -18,20 +18,22 @@ protocol PostDetailViewModel: ObservableObject {
 class DefaultPostDetailViewModel: PostDetailViewModel {
     @Published var viewState: ViewState = LoadingState()
     
-    private let postService: PostService = DefaultPostService(
-        client: DefaultHttpClient()
-    )
+    private var postService: PostService
     
-    private let userService: UserService = DefaultUserService(
-        client: DefaultHttpClient()
-    )
+    private var userService: UserService
     
     private let post: Post
     
     private var disposeBag = Set<AnyCancellable>()
     
-    init(post: Post) {
+    init(
+        post: Post,
+        postService: PostService = DefaultPostService(client: DefaultHttpClient()),
+        userService: UserService = DefaultUserService(client: DefaultHttpClient())
+    ){
         self.post = post
+        self.postService = postService
+        self.userService = userService
     }
     
     func fetchDetails() {
@@ -65,5 +67,14 @@ class DefaultPostDetailViewModel: PostDetailViewModel {
             state.showComments.toggle()
             self.viewState = state
         }
+    }
+}
+
+class SpyPostDetailsViewModel: DefaultPostDetailViewModel {
+    var hasFetchedDetails: Bool = false
+    
+    override func fetchDetails() {
+        super.fetchDetails()
+        hasFetchedDetails = true
     }
 }
