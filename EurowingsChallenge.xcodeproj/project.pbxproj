@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D394175B2996850A00362680 /* PostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D394175A2996850A00362680 /* PostsTableViewController.swift */; };
 		D394175D2996860100362680 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D394175C2996860100362680 /* PostsViewModel.swift */; };
+		D3A3D6352999219E00DAEAA8 /* PostsListingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A3D6342999219E00DAEAA8 /* PostsListingTests.swift */; };
+		D3A3D6372999382C00DAEAA8 /* PostDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A3D6362999382C00DAEAA8 /* PostDetailTests.swift */; };
 		D3B6AB4F29964AA9000099DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6AB4C29964AA9000099DA /* User.swift */; };
 		D3B6AB5029964AA9000099DA /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6AB4D29964AA9000099DA /* Comment.swift */; };
 		D3B6AB5129964AA9000099DA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6AB4E29964AA9000099DA /* Post.swift */; };
@@ -57,6 +59,8 @@
 /* Begin PBXFileReference section */
 		D394175A2996850A00362680 /* PostsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewController.swift; sourceTree = "<group>"; };
 		D394175C2996860100362680 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
+		D3A3D6342999219E00DAEAA8 /* PostsListingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListingTests.swift; sourceTree = "<group>"; };
+		D3A3D6362999382C00DAEAA8 /* PostDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailTests.swift; sourceTree = "<group>"; };
 		D3B6AB4C29964AA9000099DA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D3B6AB4D29964AA9000099DA /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		D3B6AB4E29964AA9000099DA /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -134,6 +138,22 @@
 			path = "Posts Listing";
 			sourceTree = "<group>";
 		};
+		D3A3D6322999216600DAEAA8 /* Listing */ = {
+			isa = PBXGroup;
+			children = (
+				D3A3D6342999219E00DAEAA8 /* PostsListingTests.swift */,
+			);
+			path = Listing;
+			sourceTree = "<group>";
+		};
+		D3A3D6332999217600DAEAA8 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D3A3D6362999382C00DAEAA8 /* PostDetailTests.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		D3B6AB5229964B51000099DA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +212,8 @@
 		D3CA1044299647A00012A46E /* EurowingsChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				D3A3D6332999217600DAEAA8 /* Detail */,
+				D3A3D6322999216600DAEAA8 /* Listing */,
 				D3CA1045299647A00012A46E /* EurowingsChallengeTests.swift */,
 			);
 			path = EurowingsChallengeTests;
@@ -416,7 +438,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3A3D6352999219E00DAEAA8 /* PostsListingTests.swift in Sources */,
 				D3CA1046299647A00012A46E /* EurowingsChallengeTests.swift in Sources */,
+				D3A3D6372999382C00DAEAA8 /* PostDetailTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
