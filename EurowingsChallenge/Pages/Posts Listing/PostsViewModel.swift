@@ -27,12 +27,16 @@ class DefaultPostsViewModel: PostsViewModel {
         viewState.send(LoadingState())
         
         service.getPosts()
-            .sink { completion in
-                print("completion called in vm: \(completion)")
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                
+                print("completion called in \(self): \(completion)")
                 if completion is any Error {
                     self.viewState.send(DefaultErrorViewState())
                 }
-            } receiveValue: { posts in
+            } receiveValue: { [weak self] posts in
+                guard let self = self else { return }
+                
                 let state = DefaultPostsViewState(posts: posts)
                 self.viewState.send(state)
             }

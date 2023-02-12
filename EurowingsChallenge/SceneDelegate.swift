@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftUI
+
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -15,8 +17,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene)
         
-        let postsViewController = PostsTableViewController()
-        window.rootViewController = postsViewController
+//        let postsViewController = PostsTableViewController()
+//        window.rootViewController = postsViewController
+        
+        let vc = UIHostingController(
+            rootView: PostDetailRootView(
+                viewModel: DefaultPostDetailViewModel(
+                    post: MockProvider.post)
+            )
+        )
+        window.rootViewController = vc
         window.makeKeyAndVisible()
         self.window = window
     }

@@ -18,6 +18,7 @@
 		D3B6AB5C29964B51000099DA /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6AB5729964B51000099DA /* PostService.swift */; };
 		D3B6AB5D29964B51000099DA /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6AB5829964B51000099DA /* ApiService.swift */; };
 		D3B6AB5F29964DBE000099DA /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = D3B6AB5E29964DBE000099DA /* config.json */; };
+		D3C29F0C2997B39600BC859E /* MockProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C29F0B2997B39600BC859E /* MockProvider.swift */; };
 		D3CA102F2996479F0012A46E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA102E2996479F0012A46E /* AppDelegate.swift */; };
 		D3CA10312996479F0012A46E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA10302996479F0012A46E /* SceneDelegate.swift */; };
 		D3CA1038299647A00012A46E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3CA1037299647A00012A46E /* Assets.xcassets */; };
@@ -31,6 +32,9 @@
 		D3E760B529976FE600CC25FE /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E760B429976FE600CC25FE /* ViewState.swift */; };
 		D3E760B729976FF300CC25FE /* ErrorViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E760B629976FF300CC25FE /* ErrorViewState.swift */; };
 		D3E760B9299770F900CC25FE /* ErrorViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E760B8299770F900CC25FE /* ErrorViewComponent.swift */; };
+		D3E760BC2997A32A00CC25FE /* PostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E760BB2997A32A00CC25FE /* PostDetailViewModel.swift */; };
+		D3E760C02997A33800CC25FE /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E760BF2997A33800CC25FE /* PostDetailView.swift */; };
+		D3E760C22997A33E00CC25FE /* PostDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E760C12997A33E00CC25FE /* PostDetailViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +66,7 @@
 		D3B6AB5729964B51000099DA /* PostService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		D3B6AB5829964B51000099DA /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		D3B6AB5E29964DBE000099DA /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
+		D3C29F0B2997B39600BC859E /* MockProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProvider.swift; sourceTree = "<group>"; };
 		D3CA102B2996479F0012A46E /* EurowingsChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EurowingsChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3CA102E2996479F0012A46E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3CA10302996479F0012A46E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +84,9 @@
 		D3E760B429976FE600CC25FE /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		D3E760B629976FF300CC25FE /* ErrorViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewState.swift; sourceTree = "<group>"; };
 		D3E760B8299770F900CC25FE /* ErrorViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewComponent.swift; sourceTree = "<group>"; };
+		D3E760BB2997A32A00CC25FE /* PostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModel.swift; sourceTree = "<group>"; };
+		D3E760BF2997A33800CC25FE /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		D3E760C12997A33E00CC25FE /* PostDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,7 @@
 		D3941758299684CB00362680 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				D3E760BA2997A31000CC25FE /* Post Detail */,
 				D3941759299684DB00362680 /* Posts Listing */,
 				D3E760B8299770F900CC25FE /* ErrorViewComponent.swift */,
 			);
@@ -223,6 +232,7 @@
 				D3CA1037299647A00012A46E /* Assets.xcassets */,
 				D3CA1039299647A00012A46E /* LaunchScreen.storyboard */,
 				D3CA103C299647A00012A46E /* Info.plist */,
+				D3C29F0B2997B39600BC859E /* MockProvider.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -234,6 +244,16 @@
 				D3E760B629976FF300CC25FE /* ErrorViewState.swift */,
 			);
 			path = ViewStates;
+			sourceTree = "<group>";
+		};
+		D3E760BA2997A31000CC25FE /* Post Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D3E760BB2997A32A00CC25FE /* PostDetailViewModel.swift */,
+				D3E760BF2997A33800CC25FE /* PostDetailView.swift */,
+				D3E760C12997A33E00CC25FE /* PostDetailViewState.swift */,
+			);
+			path = "Post Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +390,7 @@
 				D3CA10602996498C0012A46E /* ConfigProvider.swift in Sources */,
 				D3B6AB5029964AA9000099DA /* Comment.swift in Sources */,
 				D394175B2996850A00362680 /* PostsTableViewController.swift in Sources */,
+				D3E760C22997A33E00CC25FE /* PostDetailViewState.swift in Sources */,
 				D3B6AB5D29964B51000099DA /* ApiService.swift in Sources */,
 				D3B6AB5929964B51000099DA /* HttpClient.swift in Sources */,
 				D3CA1063299649B80012A46E /* Config.swift in Sources */,
@@ -380,9 +401,12 @@
 				D3B6AB5A29964B51000099DA /* JsonPlaceholderEndpoints.swift in Sources */,
 				D3E760B729976FF300CC25FE /* ErrorViewState.swift in Sources */,
 				D3B6AB5C29964B51000099DA /* PostService.swift in Sources */,
+				D3C29F0C2997B39600BC859E /* MockProvider.swift in Sources */,
 				D3CA102F2996479F0012A46E /* AppDelegate.swift in Sources */,
+				D3E760BC2997A32A00CC25FE /* PostDetailViewModel.swift in Sources */,
 				D3B6AB5B29964B51000099DA /* UserService.swift in Sources */,
 				D3B6AB4F29964AA9000099DA /* User.swift in Sources */,
+				D3E760C02997A33800CC25FE /* PostDetailView.swift in Sources */,
 				D3B6AB5129964AA9000099DA /* Post.swift in Sources */,
 				D3CA10312996479F0012A46E /* SceneDelegate.swift in Sources */,
 			);

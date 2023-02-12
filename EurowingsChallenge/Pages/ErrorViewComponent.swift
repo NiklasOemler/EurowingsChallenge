@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class ErrorViewComponent: UIView {
     var viewState: ErrorViewState {
@@ -92,5 +93,25 @@ class ErrorViewComponent: UIView {
             button.heightAnchor.constraint(equalToConstant: 50),
             button.widthAnchor.constraint(equalToConstant: 200),
         ])
+    }
+}
+
+struct ErrorViewComponentRepresentable: UIViewRepresentable {
+    typealias UIViewType = ErrorViewComponent
+    
+    private let viewState: ErrorViewState
+    private let action: () -> Void
+    
+    init(viewState: ErrorViewState, action: @escaping () -> Void) {
+        self.viewState = viewState
+        self.action = action
+    }
+    
+    func makeUIView(context: Context) -> ErrorViewComponent {
+        return ErrorViewComponent(viewState: viewState, action: action)
+    }
+    
+    func updateUIView(_ uiView: ErrorViewComponent, context: Context) {
+        // NO - OP
     }
 }
