@@ -89,10 +89,9 @@ struct PostDetailView<ViewModel: PostDetailViewModel>: View {
 
 // MARK: - Previews
 struct PostDetailView_previews: PreviewProvider {
-    static let post = MockProvider.post
     
     @ObservedObject
-    static var viewModel = DefaultPostDetailViewModel(post: post)
+    static var viewModel = MockPostDetailsViewModel()
     
     static var previews: some View {
         VStack {
