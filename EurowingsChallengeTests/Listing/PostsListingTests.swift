@@ -33,27 +33,23 @@ final class PostsListingTests: XCTestCase {
             let flag = spy.hasFetchedPosts
             XCTAssertTrue(flag, "viewmodel didnt invoked fetch posts function")
         }
-        
     }
     
     func test_stateChanged_after_fetch() {
         let expectation = XCTestExpectation(description: "publisher finished")
     
-        let initialState: ViewState = sut.viewState.value
         var lastState: ViewState?
         
-        var states: [ViewState] = []
-        
         sut.viewState
-            .sink(receiveCompletion: { completion in
-                expectation.fulfill()
-            }, receiveValue: { state in
+            .sink { state in
                 print("new state: \(state.self)")
-                
-                states.append(state)
+    
                 lastState = state
                 
-            })
+                if !(state is LoadingState) {
+                    expectation.fulfill()
+                }
+            }
             .store(in: &disposeBag)
         
         sut.fetchPosts()

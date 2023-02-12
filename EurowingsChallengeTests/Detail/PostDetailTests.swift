@@ -40,17 +40,13 @@ final class PostDetailTests: XCTestCase {
     func test_stateChanged_after_fetch() {
         let expectation = XCTestExpectation(description: "publisher finished")
         
-        let initialState: ViewState = sut.viewState
         var lastState: ViewState?
-        
-        var states: [ViewState] = []
         
         if let spy = sut as? SpyPostDetailsViewModel {
             spy.$viewState
                 .sink { state in
                     print("new state: \(state.self)")
                     
-                    states.append(state)
                     lastState = state
                     
                     if !(lastState is LoadingState) {
