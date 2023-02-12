@@ -17,16 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene)
         
-//        let postsViewController = PostsTableViewController()
-//        window.rootViewController = postsViewController
-        
-        let vc = UIHostingController(
-            rootView: PostDetailRootView(
-                viewModel: DefaultPostDetailViewModel(
-                    post: MockProvider.post)
-            )
+        let postsViewController = PostsTableViewController(
+            viewModel: DefaultPostsViewModel()
         )
-        window.rootViewController = vc
+        let navigationController = UINavigationController(
+            rootViewController: postsViewController
+        )
+        
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window
     }

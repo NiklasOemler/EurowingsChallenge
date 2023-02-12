@@ -8,9 +8,11 @@
 import Foundation
 import UIKit
 import Combine
+import SwiftUI
 
 class PostsTableViewController: UITableViewController {
-    private let viewModel = DefaultPostsViewModel()
+    private var viewModel: any PostsViewModel
+    
     private var posts: [Post] = [] {
         didSet {
             tableView.reloadData()
@@ -20,6 +22,16 @@ class PostsTableViewController: UITableViewController {
     private let reuseIdentifier = "postCell"
     
     private var disposeBag = Set<AnyCancellable>()
+    
+    // MARK: - Object Lifecycle
+    init(viewModel: any PostsViewModel) {
+        self.viewModel = viewModel
+        super.init(style: .insetGrouped)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - View Lifecycle
     override func loadView() {
@@ -45,9 +57,7 @@ class PostsTableViewController: UITableViewController {
     private func bindViewState() {
         viewModel.viewState
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
-                print("completion called in vc: \(completion)")
-            }, receiveValue: { [weak self] viewState in
+            .sink(receiveValue: { [weak self] viewState in
                 guard let self = self else { return }
                 
                 switch(viewState) {
@@ -91,6 +101,15 @@ class PostsTableViewController: UITableViewController {
     
     // MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = posts[indexPath.row]
         
+        let postDetailViewModel = DefaultPostDetailViewModel(post: post)
+        let hostingController = UIHostingController(
+            rootView: PostDetailRootView(
+                viewModel: postDetailViewModel
+            )
+        )
+
+        navigationController?.pushViewController(hostingController, animated: true)
     }
 }
