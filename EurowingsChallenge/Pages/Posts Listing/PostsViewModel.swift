@@ -17,11 +17,14 @@ protocol PostsViewModel: ObservableObject {
 class DefaultPostsViewModel: PostsViewModel {
     var viewState = CurrentValueSubject<ViewState, Never>(LoadingState())
     
-    private let service: PostService = DefaultPostService(
-        client: DefaultHttpClient()
-    )
+    private var service: PostService
     
     private var disposeBag = Set<AnyCancellable>()
+    
+    // MARK: - Objecte Lifecycle
+    init(postService: PostService = DefaultPostService(client: DefaultHttpClient())) {
+        self.service = postService
+    }
     
     func fetchPosts() {
         viewState.send(LoadingState())
