@@ -28,7 +28,7 @@ struct PostDetailRootView<ViewModel: PostDetailViewModel>: View {
                     state: postDetailState
                 )
             default:
-                VStack {}
+                EmptyView()
             }
         }.onAppear {
             viewModel.fetchDetails()
@@ -40,45 +40,59 @@ struct PostDetailRootView<ViewModel: PostDetailViewModel>: View {
 
 struct PostDetailView<ViewModel: PostDetailViewModel>: View {
     @ObservedObject var viewModel: ViewModel
-    
     let state: PostDetailViewState
     
     var body: some View {
-        VStack(spacing: 10) {
-            Text(state.post.title)
-            Text(state.post.body)
-            Text(state.author.name)
-            Button {
-                withAnimation {
-                    viewModel.toggleComments()
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(state.post.title)
+                        .bold()
+                    Text(state.post.body)
+                    Text("Author: \(state.author.name)")
+                        .padding(.top, 10)
                 }
-            } label: {
-                HStack() {
-                    Image(systemName: "bubble.left")
-                    Text(state.showComments ? "Hide Comments" : "Show Comments")
-                    Image(systemName: state.showComments ? "chevron.up" : "chevron.down")
+                Divider()
+                    .padding(.top, 20)
+                Button {
+                    withAnimation {
+                        viewModel.toggleComments()
+                    }
+                } label: {
+                    HStack() {
+                        Image(systemName: "bubble.left")
+                        Text("Comments (\(state.comments?.count ?? 0))")
+                        Image(systemName: state.showComments ? "chevron.up" : "chevron.down")
+                    }
+                    .frame(maxWidth: .infinity)
                 }
-            }
-            if state.showComments {
-                List(state.comments) { item in
-                    VStack(alignment: .leading) {
-                        Text(item.name)
-                            .bold()
-                        Text(item.body)
-                            .multilineTextAlignment(.leading)
+                .padding(.vertical, 20)
+                
+                if let comments = state.comments,
+                    state.showComments {
+                    ForEach(comments) { item in
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(item.name)
+                                .bold()
+                            Text(item.body)
+                            Divider()
+                                .padding(.vertical, 20)
+                        }
                     }
                 }
+                Spacer()
             }
         }
-        Spacer()
     }
 }
 
 
 // MARK: - Previews
 struct PostDetailView_previews: PreviewProvider {
-    static let post: Post = MockProvider.post
-    static let viewModel = DefaultPostDetailViewModel(post: post)
+    static let post = MockProvider.post
+    
+    @ObservedObject
+    static var viewModel = DefaultPostDetailViewModel(post: post)
     
     static var previews: some View {
         VStack {
