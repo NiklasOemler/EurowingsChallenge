@@ -25,7 +25,6 @@
 		D3CA10312996479F0012A46E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA10302996479F0012A46E /* SceneDelegate.swift */; };
 		D3CA1038299647A00012A46E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3CA1037299647A00012A46E /* Assets.xcassets */; };
 		D3CA103B299647A00012A46E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3CA1039299647A00012A46E /* LaunchScreen.storyboard */; };
-		D3CA1046299647A00012A46E /* EurowingsChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA1045299647A00012A46E /* EurowingsChallengeTests.swift */; };
 		D3CA1050299647A00012A46E /* EurowingsChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA104F299647A00012A46E /* EurowingsChallengeUITests.swift */; };
 		D3CA1052299647A00012A46E /* EurowingsChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA1051299647A00012A46E /* EurowingsChallengeUITestsLaunchTests.swift */; };
 		D3CA10602996498C0012A46E /* ConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CA105F2996498C0012A46E /* ConfigProvider.swift */; };
@@ -78,7 +77,6 @@
 		D3CA103A299647A00012A46E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3CA103C299647A00012A46E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3CA1041299647A00012A46E /* EurowingsChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EurowingsChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3CA1045299647A00012A46E /* EurowingsChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurowingsChallengeTests.swift; sourceTree = "<group>"; };
 		D3CA104B299647A00012A46E /* EurowingsChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EurowingsChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3CA104F299647A00012A46E /* EurowingsChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurowingsChallengeUITests.swift; sourceTree = "<group>"; };
 		D3CA1051299647A00012A46E /* EurowingsChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurowingsChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 			children = (
 				D3A3D6332999217600DAEAA8 /* Detail */,
 				D3A3D6322999216600DAEAA8 /* Listing */,
-				D3CA1045299647A00012A46E /* EurowingsChallengeTests.swift */,
 			);
 			path = EurowingsChallengeTests;
 			sourceTree = "<group>";
@@ -439,7 +436,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3A3D6352999219E00DAEAA8 /* PostsListingTests.swift in Sources */,
-				D3CA1046299647A00012A46E /* EurowingsChallengeTests.swift in Sources */,
 				D3A3D6372999382C00DAEAA8 /* PostDetailTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

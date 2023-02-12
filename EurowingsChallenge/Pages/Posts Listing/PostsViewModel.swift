@@ -36,14 +36,12 @@ class DefaultPostsViewModel: PostsViewModel {
                 
                 if case .failure(let error) = completion {
                     self.viewState.send(DefaultErrorViewState(error: error))
-                    self.viewState.send(completion: .finished)
                 }
             } receiveValue: { [weak self] posts in
                 guard let self = self else { return }
                 
                 let state = DefaultPostsViewState(posts: posts)
                 self.viewState.send(state)
-                self.viewState.send(completion: .finished)
             }
             .store(in: &disposeBag)
     }

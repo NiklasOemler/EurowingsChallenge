@@ -15,11 +15,23 @@ protocol PostDetailViewModel: ObservableObject {
     func toggleComments()
 }
 
-class DefaultPostDetailViewModel: PostDetailViewModel {
+class BasePostDetailViewModel: PostDetailViewModel {
     @Published var viewState: ViewState = LoadingState()
     
-    private var postService: PostService
+    func fetchDetails() {
+        fatalError("fetchDetails called in abstract class: \(self)")
+    }
     
+    func toggleComments() {
+        if var state = viewState as? PostDetailViewState {
+            state.showComments.toggle()
+            self.viewState = state
+        }
+    }
+}
+
+class DefaultPostDetailViewModel: BasePostDetailViewModel {
+    private var postService: PostService
     private var userService: UserService
     
     private let post: Post
@@ -36,7 +48,7 @@ class DefaultPostDetailViewModel: PostDetailViewModel {
         self.userService = userService
     }
     
-    func fetchDetails() {
+    override func fetchDetails() {
         viewState = LoadingState()
         
         let userPublisher = userService.getUser(id: post.userId)
@@ -61,13 +73,6 @@ class DefaultPostDetailViewModel: PostDetailViewModel {
             }
             .store(in: &disposeBag)
     }
-    
-    func toggleComments() {
-        if var state = viewState as? PostDetailViewState {
-            state.showComments.toggle()
-            self.viewState = state
-        }
-    }
 }
 
 class SpyPostDetailsViewModel: DefaultPostDetailViewModel {
@@ -76,5 +81,11 @@ class SpyPostDetailsViewModel: DefaultPostDetailViewModel {
     override func fetchDetails() {
         super.fetchDetails()
         hasFetchedDetails = true
+    }
+}
+
+class MockPostDetailsViewModel: BasePostDetailViewModel {
+    override func fetchDetails() {
+        viewState = MockPostDetailViewState()
     }
 }
